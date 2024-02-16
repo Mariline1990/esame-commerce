@@ -24,6 +24,15 @@ namespace esame_commerce
         protected global::System.Web.UI.WebControls.Image Image1;
 
         /// <summary>
+        /// Controllo Titolo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Titolo;
+
+        /// <summary>
         /// Controllo stampa.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace esame_commerce
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl stampa;
+
+        /// <summary>
+        /// Controllo price.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl price;
 
         /// <summary>
         /// Controllo Button1.

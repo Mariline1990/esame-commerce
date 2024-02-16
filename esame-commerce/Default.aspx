@@ -15,6 +15,7 @@
             <div class=" col-md-3 col-xs-1  mt-3">
                 <div class="card bg-warning bg-opacity-50"> 
                    <img src='<%# Eval("Image") %>' class="w-100"/><br />
+                    
                       <div class="card-body text-lg-center">
                         <%# Eval("Name") %><br />
                           <asp:LinkButton ID="Button2" runat="server" CssClass="btn btn-dark mt-2" Text="Dettagli" CommandArgument='<%# Eval("Id") %>' OnClick="Button_Dettagli" ></asp:LinkButton>                        

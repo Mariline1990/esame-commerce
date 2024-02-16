@@ -32,10 +32,11 @@ namespace esame_commerce
                     }
                     if (selectedMiniature != null)
                     {
-                        
+                        Titolo.InnerText = selectedMiniature.Name;
                         stampa.InnerText = selectedMiniature.Description;
                         Image1.ImageUrl = selectedMiniature.Image;
-
+                        price.InnerText = $"{selectedMiniature.Price} EURO";
+                        
                     }
                     else
                     {
@@ -76,7 +77,7 @@ namespace esame_commerce
                       
                     }
 
-                    carrelloCookie.Values[selectedMiniature.Id.ToString()] = selectedMiniature.Name;
+                    carrelloCookie.Values[selectedMiniature.Id.ToString()] = selectedMiniature.Name + selectedMiniature.Description;
 
                     carrelloCookie.Expires = DateTime.Now.AddDays(10);
        
