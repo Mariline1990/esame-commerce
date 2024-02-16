@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,25 +16,23 @@ namespace esame_commerce
 
             if (!IsPostBack)
             {
-                // Recupera il valore dell'ID dalla query string               
+               
                 if (Request.QueryString["id"] != null)
                 {
                     int id = Convert.ToInt32(Request.QueryString["Id"]);
-
-                    // Trova l'oggetto Miniatures corrispondente dall'ID
+                
                     Miniatures selectedMiniature = null;
                     foreach (Miniatures miniature in Miniatures.MiniaturesList)
                     {
                         if (miniature.Id == id)
                         {
                             selectedMiniature = miniature;
-                            break; // Esci dal ciclo una volta trovato l'oggetto corrispondente
+                            break; 
                         }
                     }
-
                     if (selectedMiniature != null)
                     {
-                        // Stampa la descrizione
+                        
                         stampa.InnerText = selectedMiniature.Description;
                         Image1.ImageUrl = selectedMiniature.Image;
 
@@ -45,7 +44,54 @@ namespace esame_commerce
                     }
                 }
             }
+
+
         }
+
+
+        protected void Aggiungi(object sender, EventArgs e)
+        {
+            if (Request.QueryString["id"] != null)
+            {
+                int id = Convert.ToInt32(Request.QueryString["Id"]);
+
+          
+                Miniatures selectedMiniature = null;
+
+                foreach (Miniatures miniature in Miniatures.MiniaturesList)
+                {
+                    if (miniature.Id == id)
+                    {
+                        selectedMiniature = miniature;
+                        break; 
+                    }
+                }
+                if (selectedMiniature != null)
+                {               
+                    HttpCookie carrelloCookie = Request.Cookies["Carrello"];
+
+                    if (carrelloCookie == null)
+                    {
+                        carrelloCookie = new HttpCookie("Carrello");
+                      
+                    }
+
+                    carrelloCookie.Values[selectedMiniature.Id.ToString()] = selectedMiniature.Name;
+
+                    carrelloCookie.Expires = DateTime.Now.AddDays(10);
+       
+                    Response.Cookies.Add(carrelloCookie);
+
+                    
+                    
+                }
+                else
+                {
+                    stampa.InnerText = "Miniatura non trovata.";
+                }
+            }
+        }
+
     }
-    
+
 }

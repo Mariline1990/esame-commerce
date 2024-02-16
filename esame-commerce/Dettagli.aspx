@@ -9,7 +9,7 @@
             <h5 class="card-title" runat="server"> </h5>
             <p class="card-text" id="stampa" runat="server" >.</p>
             <p class="card-price" runat="server"></p>
-            <asp:Button ID="Button1" runat="server" Text="Aggiungi al carrello" onClick=""/>
+            <asp:Button ID="Button1" runat="server" Text="Aggiungi al carrello" CssClass="btn btn-danger" onClick="Aggiungi"/>
             
         </div>
     </div>
